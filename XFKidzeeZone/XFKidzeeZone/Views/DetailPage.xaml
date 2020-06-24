@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFKidzeeZone.Views.DetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:fonticons="clr-namespace:XFKidzeeZone.Fonts"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d">
+
+    <ScrollView Margin="{OnPlatform Android='0', iOS='0,-45,0,0'}">
+        <Grid BackgroundColor="{StaticResource colorPinkBackground}" RowSpacing="0">
+            <Grid RowDefinitions="auto, 800">
+                <StackLayout
+                    Grid.Row="0"
+                    Margin="{OnPlatform Android='30,30,30,0',
+                                        iOS='30,70,30,0'}"
+                    Orientation="Horizontal">
+                    <Image HorizontalOptions="StartAndExpand" Source="back_button.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PopDetailPageCommand}" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="ic_search.png" />
+                </StackLayout>
+                <pancake:PancakeView
+                    x:Name="pancakeStack"
+                    Grid.Row="1"
+                    Margin="{OnPlatform Android='0,85,0,0',
+                                        iOS='0,90,0,0'}"
+                    Padding="20,80,20,0"
+                    BackgroundColor="{StaticResource colorBlackBackground}"
+                    CornerRadius="60,60,0,0"
+                    HasShadow="False"
+                    HeightRequest="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <Grid
+                        ColumnDefinitions="*, *, *"
+                        ColumnSpacing="20"
+                        RowDefinitions="auto, auto, auto, auto, auto, 145, auto, auto, auto"
+                        RowSpacing="10">
+                        <Label
+                            x:Name="lbCompany"
+                            Grid.Row="0"
+                            Grid.ColumnSpan="3"
+                            FontFamily="FontCamptonBook"
+                            FontSize="Small"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding Game.company}" />
+                        <Label
+                            x:Name="lbName"
+                            Grid.Row="1"
+                            Grid.ColumnSpan="3"
+                            FontFamily="FontCamptonSemiBold"
+                            FontSize="25"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding Game.name}" />
+                        <StackLayout
+                            Grid.Row="2"
+                            Grid.ColumnSpan="3"
+                            BindableLayout.ItemsSource="{Binding Game.stars}"
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Label
+                                        FontFamily="FontFontello"
+                                        FontSize="20"
+                                        Text="{x:Static fonticons:FontIcons.Star}"
+                                        TextColor="{StaticResource colorWhite}"
+                                        VerticalOptions="Center">
+                                        <Label.Triggers>
+                                            <DataTrigger
+                                                Binding="{Binding number}"
+                                                TargetType="Label"
+                                                Value="4.5">
+                                                <Setter Property="TextColor" Value="{StaticResource colorGray6E}" />
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                        <pancake:PancakeView
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Margin="0,18,0,0"
+                            Padding="10,15"
+                            BackgroundColor="{StaticResource colorBlackBackground36}"
+                            CornerRadius="10">
+                            <StackLayout VerticalOptions="Center">
+                                <Label
+                                    FontFamily="FontCamptonMedium"
+                                    FontSize="{OnPlatform Android='16',
+                                                          iOS='18'}"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Game.genre}" />
+                                <Label
+                                    FontFamily="FontCamptonBook"
+                                    FontSize="Small"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Zone" />
+                            </StackLayout>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Margin="0,18,0,0"
+                            Padding="15,10"
+                            BackgroundColor="{StaticResource colorBlackBackground36}"
+                            CornerRadius="10">
+                            <StackLayout VerticalOptions="Center">
+                                <Label
+                                    FontFamily="FontCamptonMedium"
+                                    FontSize="18"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Game.rating, StringFormat='{0:N1}'}" />
+                                <Label
+                                    FontFamily="FontCamptonBook"
+                                    FontSize="Small"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Rating" />
+                            </StackLayout>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            Margin="0,18,0,0"
+                            Padding="15,10"
+                            BackgroundColor="{StaticResource colorBlackBackground36}"
+                            CornerRadius="10">
+                            <StackLayout VerticalOptions="Center">
+                                <Label
+                                    FontFamily="FontCamptonMedium"
+                                    FontSize="18"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Game.install, StringFormat='{0:N1} M'}" />
+                                <Label
+                                    FontFamily="FontCamptonBook"
+                                    FontSize="Small"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Install" />
+                            </StackLayout>
+                        </pancake:PancakeView>
+                        <Label
+                            Grid.Row="4"
+                            Grid.ColumnSpan="3"
+                            Margin="0,30,0,0"
+                            FontFamily="FontCamptonSemiBold"
+                            FontSize="18"
+                            Text="About this game" />
+                        <Label
+                            Grid.Row="5"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,0"
+                            FontFamily="FontCamptonLight"
+                            FontSize="15"
+                            Text="{Binding Game.about}" />
+                        <Label
+                            Grid.Row="6"
+                            Grid.ColumnSpan="3"
+                            FontFamily="FontCamptonSemiBold"
+                            FontSize="18"
+                            Text="Rating and Reviews" />
+                        <Grid
+                            x:Name="gridReviews"
+                            Grid.Row="7"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,0"
+                            ColumnDefinitions=".38*, .62*">
+                            <pancake:PancakeView
+                                Grid.Column="0"
+                                Padding="15,10"
+                                BackgroundColor="{StaticResource colorBlackBackground36}"
+                                CornerRadius="4">
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label
+                                        FontFamily="FontCamptonSemiBold"
+                                        FontSize="20"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Game.rating, StringFormat='{0:N1}'}"
+                                        TextColor="{StaticResource colorOrange}" />
+                                    <StackLayout BindableLayout.ItemsSource="{Binding Game.stars}" Orientation="Horizontal">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <Label
+                                                    FontFamily="FontFontello"
+                                                    FontSize="{OnPlatform Android='14',
+                                                                          iOS='15'}"
+                                                    Text="{x:Static fonticons:FontIcons.Star}"
+                                                    TextColor="{StaticResource colorWhite}"
+                                                    VerticalOptions="Center">
+                                                    <Label.Triggers>
+                                                        <DataTrigger
+                                                            Binding="{Binding number}"
+                                                            TargetType="Label"
+                                                            Value="4.5">
+                                                            <Setter Property="TextColor" Value="{StaticResource colorGray6E}" />
+                                                        </DataTrigger>
+                                                    </Label.Triggers>
+                                                </Label>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+                                    <Label
+                                        Margin="0,3,0,0"
+                                        FontFamily="FontCamptonLight"
+                                        FontSize="12"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Game.reviewNumbers, StringFormat='{0} reviews'}" />
+                                </StackLayout>
+                            </pancake:PancakeView>
+                            <StackLayout
+                                x:Name="stackReviews"
+                                Grid.Column="1"
+                                Margin="30,0,0,0"
+                                BindableLayout.ItemsSource="{Binding Game.reviews}"
+                                HorizontalOptions="End"
+                                Spacing="2"
+                                VerticalOptions="Center">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid
+                                            Grid.Column="1"
+                                            ColumnDefinitions="auto, auto, *, 30"
+                                            ColumnSpacing="2">
+                                            <Label
+                                                Grid.Column="0"
+                                                Margin="0,2,0,0"
+                                                FontFamily="FontCamptonLight"
+                                                FontSize="10"
+                                                Text="{Binding order}"
+                                                VerticalOptions="Center" />
+                                            <Label
+                                                Grid.Column="1"
+                                                FontFamily="FontFontello"
+                                                FontSize="10"
+                                                Text="{x:Static fonticons:FontIcons.Star}"
+                                                TextColor="{StaticResource colorGray6E}"
+                                                VerticalOptions="Center" />
+                                            <ProgressBar
+                                                x:Name="progressBar"
+                                                Grid.Column="2"
+                                                Margin="6,0"
+                                                BackgroundColor="{StaticResource colorGray6E}"
+                                                HeightRequest="3"
+                                                Progress="{Binding progress}"
+                                                ProgressColor="{StaticResource colorWhite}"
+                                                VerticalOptions="Center" />
+                                            <Label
+                                                Grid.Column="3"
+                                                Margin="0,2,0,0"
+                                                FontFamily="FontCamptonLight"
+                                                FontSize="10"
+                                                HorizontalOptions="Start"
+                                                Text="{Binding percentual, StringFormat='{0}%'}"
+                                                VerticalOptions="Center" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </Grid>
+                        <Button
+                            Grid.Row="8"
+                            Grid.ColumnSpan="3"
+                            Margin="{OnPlatform Android='80,20,80,10',
+                                                iOS='110,20,110,10'}"
+                            BackgroundColor="{StaticResource colorPinkBackground}"
+                            CornerRadius="20"
+                            FontFamily="FontCamptonSemiBold"
+                            FontSize="Small"
+                            HeightRequest="38"
+                            Text="Install now"
+                            TextColor="{StaticResource colorWhite}"
+                            Visual="Material" />
+                    </Grid>
+                </pancake:PancakeView>
+            </Grid>
+            <Image
+                x:Name="imageGame"
+                Margin="{OnPlatform Android='0,34,0,0',
+                                    iOS='0,60,0,0'}"
+                HeightRequest="{OnPlatform Android='185',
+                                           iOS='190'}"
+                HorizontalOptions="Center"
+                Source="{Binding Game.image}"
+                VerticalOptions="Start"
+                WidthRequest="140" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

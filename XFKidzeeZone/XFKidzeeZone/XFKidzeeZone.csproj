@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Campton-Bold.otf" />
+    <None Remove="Fonts\Campton-Book.otf" />
+    <None Remove="Fonts\Campton-Light.otf" />
+    <None Remove="Fonts\Campton-Medium.otf" />
+    <None Remove="Fonts\Campton-SemiBold.otf" />
+    <None Remove="Fonts\fontello.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\Campton-Bold.otf" />
+    <EmbeddedResource Include="Fonts\Campton-Book.otf" />
+    <EmbeddedResource Include="Fonts\Campton-Light.otf" />
+    <EmbeddedResource Include="Fonts\Campton-Medium.otf" />
+    <EmbeddedResource Include="Fonts\Campton-SemiBold.otf" />
+    <EmbeddedResource Include="Fonts\fontello.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\DetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

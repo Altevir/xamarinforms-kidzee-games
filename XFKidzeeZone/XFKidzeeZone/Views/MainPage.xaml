@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFKidzeeZone.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:fonticons="clr-namespace:XFKidzeeZone.Fonts"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="{StaticResource colorBlackBackground}"
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d">
+
+    <ScrollView>
+        <Grid
+            Margin="25,25,0,25"
+            ColumnDefinitions=".2*, *, .2*"
+            RowDefinitions="auto, auto, auto, auto, 320, auto, auto">
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                Source="ic_menu.png" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                FontSize="20"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="Kidzee Zone"
+                VerticalOptions="Center" />
+            <Image
+                Grid.Row="0"
+                Grid.Column="2"
+                Margin="0,0,25,0"
+                HorizontalOptions="End"
+                Source="ic_search.png" />
+            <pancake:PancakeView
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                Margin="0,20,25,0"
+                Padding="25,12,25,10"
+                BackgroundColor="#363636"
+                CornerRadius="10">
+                <Grid
+                    ColumnDefinitions="*, *, *"
+                    RowDefinitions="auto, auto"
+                    RowSpacing="10">
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HorizontalOptions="Center"
+                        Source="trending.png"
+                        VerticalOptions="Center" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontFamily="FontCamptonLight"
+                        FontSize="{OnPlatform Android='12',
+                                              iOS='14'}"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="Trending" />
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        Source="popular.png"
+                        VerticalOptions="Center" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontFamily="FontCamptonLight"
+                        FontSize="{OnPlatform Android='12',
+                                              iOS='14'}"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="Popular" />
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        HorizontalOptions="Center"
+                        Source="release.png"
+                        VerticalOptions="Center" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        FontFamily="FontCamptonLight"
+                        FontSize="{OnPlatform Android='12',
+                                              iOS='14'}"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="New Release" />
+                </Grid>
+            </pancake:PancakeView>
+            <Label
+                Grid.Row="2"
+                Grid.ColumnSpan="3"
+                Margin="0,30,0,0"
+                FontFamily="FontCamptonBook"
+                FontSize="14"
+                Text="Recently Popular" />
+            <Label
+                Grid.Row="3"
+                Grid.ColumnSpan="3"
+                FontSize="30"
+                Text="Discover" />
+            <CollectionView
+                x:Name="listGames"
+                Grid.Row="4"
+                Grid.ColumnSpan="3"
+                HorizontalScrollBarVisibility="Never"
+                ItemsSource="{Binding Games}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="14" Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <pancake:PancakeView
+                                Padding="15,20,15,0"
+                                BackgroundGradientAngle="30"
+                                BackgroundGradientEndColor="{Binding backgroundEndColor}"
+                                BackgroundGradientStartColor="{Binding backgroundStartColor}"
+                                CornerRadius="12"
+                                HeightRequest="{OnPlatform Android='165',
+                                                           iOS='160'}"
+                                VerticalOptions="End"
+                                WidthRequest="110">
+                                <Grid ColumnDefinitions="auto, *" RowDefinitions="auto, 35, auto">
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.ColumnSpan="2"
+                                        Margin="0,25,0,0"
+                                        FontSize="16"
+                                        Text="{Binding name}" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
+                                        FontFamily="FontCamptonMedium"
+                                        FontSize="12"
+                                        Opacity="0.5"
+                                        Text="{Binding company}"
+                                        VerticalOptions="FillAndExpand" />
+                                    <pancake:PancakeView
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Padding="{OnPlatform Android='10,15,10,25',
+                                                             iOS='10,15,10,30'}"
+                                        BackgroundColor="{StaticResource colorWhite}"
+                                        BackgroundGradientEndColor="{Binding backgroundEndColor}"
+                                        BackgroundGradientStartColor="{StaticResource colorWhite}"
+                                        CornerRadius="20,20,0,0"
+                                        HasShadow="False"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="End"
+                                        WidthRequest="20">
+                                        <Label
+                                            Margin="4,0,0,0"
+                                            FontFamily="FontFontello"
+                                            FontSize="16"
+                                            HorizontalOptions="Center"
+                                            Text="{x:Static fonticons:FontIcons.Play}"
+                                            TextColor="{Binding backgroundEndColor}"
+                                            VerticalOptions="Start" />
+                                    </pancake:PancakeView>
+                                    <StackLayout
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Margin="{OnPlatform Android='0,0,0,10',
+                                                            iOS='0,0,0,22'}"
+                                        HorizontalOptions="EndAndExpand"
+                                        Orientation="Horizontal"
+                                        VerticalOptions="End">
+                                        <Label
+                                            Margin="0,2,0,0"
+                                            FontFamily="FontFontello"
+                                            FontSize="12"
+                                            Text="{x:Static fonticons:FontIcons.Star}"
+                                            TextColor="{StaticResource colorWhite}"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            Margin="0,3,0,0"
+                                            FontFamily="FontCamptonBook"
+                                            FontSize="14"
+                                            Text="{Binding rating, StringFormat='{0:N1}'}"
+                                            VerticalOptions="Center" />
+                                    </StackLayout>
+                                </Grid>
+                            </pancake:PancakeView>
+                            <Image
+                                Margin="0,20,0,0"
+                                HeightRequest="160"
+                                HorizontalOptions="Center"
+                                Source="{Binding image}"
+                                VerticalOptions="Start"
+                                WidthRequest="120" />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Path=BindingContext.NavigateToDetailPageCommand, Source={x:Reference listGames}}"
+                                    CommandParameter="{Binding .}"
+                                    NumberOfTapsRequired="1" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label
+                Grid.Row="5"
+                Grid.ColumnSpan="3"
+                Margin="0,30,0,0"
+                FontSize="20"
+                Text="Best of the week" />
+            <CollectionView
+                Grid.Row="6"
+                Grid.ColumnSpan="3"
+                Margin="0,20,0,0"
+                HeightRequest="300"
+                HorizontalScrollBarVisibility="Never"
+                ItemsSource="{Binding BestOfWeeks}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="14" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            ColumnDefinitions="auto, *"
+                            ColumnSpacing="15"
+                            RowDefinitions="auto, auto, auto">
+                            <Image
+                                Grid.RowSpan="3"
+                                Grid.Column="0"
+                                HeightRequest="64"
+                                Source="{Binding image}"
+                                WidthRequest="64" />
+                            <StackLayout
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Orientation="Horizontal">
+                                <Label
+                                    Margin="2,0,0,5"
+                                    FontFamily="FontFontello"
+                                    FontSize="12"
+                                    Text="{x:Static fonticons:FontIcons.Star}"
+                                    TextColor="{StaticResource colorOrange}"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    FontFamily="FontCamptonBook"
+                                    FontSize="12"
+                                    Text="{Binding rating, StringFormat='{0:N1}'}"
+                                    TextColor="{StaticResource colorOrange}"
+                                    VerticalOptions="Center" />
+                            </StackLayout>
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontFamily="FontCamptonBook"
+                                FontSize="18"
+                                Text="{Binding name}" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                FontFamily="FontCamptonBook"
+                                FontSize="12"
+                                Text="{Binding company}" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
+</ContentPage>

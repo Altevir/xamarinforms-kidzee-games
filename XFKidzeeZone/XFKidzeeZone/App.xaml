@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="XFKidzeeZone.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Application.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontFamily" Value="FontCamptonBold" />
+        </Style>
+        <Color x:Key="colorBlackBackground">#1E1E1E</Color>
+        <Color x:Key="colorBlackBackground36">#363636</Color>
+        <Color x:Key="colorPinkBackground">#E33E6B</Color>
+        <Color x:Key="colorOrange">#FF6A44</Color>
+        <Color x:Key="colorWhite">#FFFFFF</Color>
+        <Color x:Key="colorGray6E">#6E6E6E</Color>
+    </Application.Resources>
+</Application>
