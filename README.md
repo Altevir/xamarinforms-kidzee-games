@@ -9,11 +9,13 @@ O que foi usado no desenvolvimento:
 
 ## Screenshots
 ### Android
+![kidzee_android](https://user-images.githubusercontent.com/11803107/85612553-61474400-b62f-11ea-8419-5b8b61d55f45.jpg)
 ![kidzee_android_mario](https://user-images.githubusercontent.com/11803107/85612384-33fa9600-b62f-11ea-9f20-d9caeb6b7cae.jpg)
 ![kidzee_android_angry_birds](https://user-images.githubusercontent.com/11803107/85612425-3eb52b00-b62f-11ea-8e59-2d3e430e0184.jpg)
 ![kidzee_android_clash](https://user-images.githubusercontent.com/11803107/85612452-4674cf80-b62f-11ea-9851-c7466608c824.jpg)
 
 ### iOS
+![kidzee_ios300](https://user-images.githubusercontent.com/11803107/85612609-6c01d900-b62f-11ea-9c81-eec4a48e13f0.jpg)
 ![kidzee_ios_mario](https://user-images.githubusercontent.com/11803107/85611696-9010ea80-b62e-11ea-8605-933a11e79c45.jpg)
 ![kidzee_ios_angry_birds](https://user-images.githubusercontent.com/11803107/85611744-9b641600-b62e-11ea-843a-86d5ef5fcd15.jpg)
 ![kidzee_ios_clash](https://user-images.githubusercontent.com/11803107/85611791-a3bc5100-b62e-11ea-96d7-8a53f54d3b95.jpg)
