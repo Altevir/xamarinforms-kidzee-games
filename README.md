@@ -1,12 +1,11 @@
-# Xamarin.Forms Art Store
+# Xamarin.Forms Kidzee Games
 Conceito de App desenvolvido com XamarinForms. </br>
 O que foi usado no desenvolvimento:
 - Padrão MVVM (sem framework)
 - PancakeView (https://github.com/sthewissen/Xamarin.Forms.PancakeView)
 - Embedded Fonts (https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/text/fonts)
-- VisualStateManager (https://docs.microsoft.com/pt-br/xamarin/xamarin-forms/user-interface/visual-state-manager)
 - CollectionView
-- XamarinForms 4.6.0.967
+- XamarinForms 4.7.0.968
 
 ## Screenshots
 ### Android
